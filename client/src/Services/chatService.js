@@ -80,8 +80,8 @@ export function useGetConversations() {
     return getConversations;
 }
 
-// get conversation messages based on
-// to and from id's
+// отримати повідомлення розмови на основі
+// до та з id
 export function useGetConversationMessages() {
     const { enqueueSnackbar } = useSnackbar();
     const handleResponse = useHandleResponse();

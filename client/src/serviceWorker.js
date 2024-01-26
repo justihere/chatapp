@@ -1,14 +1,13 @@
-// This optional code is used to register a service worker.
-// register() is not called by default.
+// Цей додатковий код використовується для реєстрації сервісного працівника.
+// register() не викликається за замовчуванням.
 
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on subsequent visits to a page, after all the
-// existing tabs open on the page have been closed, since previously cached
-// resources are updated in the background.
+// Це дозволяє програмі завантажуватися швидше під час наступних відвідувань у виробництві та дає
+// це офлайн-можливості. Однак це також означає, що розробники (і користувачі)
+// буде бачити лише розгорнуті оновлення під час наступних відвідувань сторінки, зрештою
+// існуючі вкладки, відкриті на сторінці, були закриті, оскільки раніше кешувалися
+// ресурси оновлюються у фоновому режимі.
 
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://bit.ly/CRA-PWA
+
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -22,12 +21,12 @@ const isLocalhost = Boolean(
 
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-    // The URL constructor is available in all browsers that support SW.
+    // Конструктор URL доступний у всіх браузерах, які підтримують ПЗ.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
-      // Our service worker won't work if PUBLIC_URL is on a different origin
-      // from what our page is served on. This might happen if a CDN is used to
-      // serve assets; see https://github.com/facebook/create-react-app/issues/2374
+      // Наш сервіс-воркер не працюватиме, якщо PUBLIC_URL має інше походження
+      // від того, на чому обслуговується наша сторінка. Це може статися, якщо CDN звик
+      // обслуговувати активи; див. https://github.com/facebook/create-react-app/issues/2374
       return;
     }
 
@@ -35,11 +34,12 @@ export function register(config) {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
-        // This is running on localhost. Let's check if a service worker still exists or not.
+        // Це працює на локальному хості. Давайте перевіримо, чи існує ще сервісний працівник чи ні.
         checkValidServiceWorker(swUrl, config);
 
-        // Add some additional logging to localhost, pointing developers to the
-        // service worker/PWA documentation.
+        
+        // Додати додаткове журналювання до localhost, вказуючи розробникам на
+        // service worker/документація PWA.
         navigator.serviceWorker.ready.then(() => {
           console.log(
             'This web app is being served cache-first by a service ' +
@@ -47,7 +47,7 @@ export function register(config) {
           );
         });
       } else {
-        // Is not localhost. Just register service worker
+        // Не є локальним хостом. Просто зареєструйте сервісного працівника
         registerValidSW(swUrl, config);
       }
     });
@@ -66,25 +66,28 @@ function registerValidSW(swUrl, config) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
-              // content until all client tabs are closed.
+
+              // На цьому етапі оновлений попередньо кешований вміст отримано,  
+              // але попередній сервіс-воркер все одно обслуговуватиме старшого
+              // вміст, доки всі вкладки клієнта не будуть закриті.
               console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
 
-              // Execute callback
+
+              // Виконати зворотний виклик
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
               }
             } else {
-              // At this point, everything has been precached.
-              // It's the perfect time to display a
-              // "Content is cached for offline use." message.
+              // На даний момент все було попередньо кешовано.  
+              // Це ідеальний час для відображення a
+              // "Вміст кешується для використання в автономному режимі." повідомлення.
               console.log('Content is cached for offline use.');
 
-              // Execute callback
+              
+              // Виконати зворотний виклик
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
               }
