@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.dark,
   },
   list: {
-    maxHeight: "calc(100vh - 112px)",
+    maxHeight: "calc(100vh - 100px)",
     overflowY: "auto",
   },
 }));
